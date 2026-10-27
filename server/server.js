@@ -39,6 +39,35 @@ app.get('/api/jobs/count',(req,res)=>{
         count:jobs.length
     })
 })
+app.get('/api/jobs/:id',(req,res)=>{
+
+    
+         const id = Number(req.params.id)
+         const job = jobs.find((job) => job.id=== id)
+     
+         if(!job){
+            return res.status(404).json({
+            success:false,
+            message:`job not found at ${id}`
+         });
+        }   
+        else if(Number.isNaN(id)){
+            res.status(404).json({
+                success:false,
+                message:`invalid job id ${id}`
+            })
+
+        }
+
+        res.status(200).json({
+            success:true,
+            data:job
+        })
+
+
+})
+
+
 
 const port = 5000;
 

@@ -36,37 +36,70 @@ app.get('/api/jobs',(req,res)=>{
 
 app.get('/api/jobs/count',(req,res)=>{
     res.json({
-        count:jobs.length
+        count:`Total avilable jobs are ${jobs.length} `
     })
 })
-app.get('/api/jobs/:id',(req,res)=>{
+// app.get('/api/jobs/:id',(req,res)=>{
 
     
-         const id = Number(req.params.id)
-         const job = jobs.find((job) => job.id=== id)
+//          const id = Number(req.params.id)
+//          const job = jobs.find((job) => job.id=== id)
      
-         if(!job){
-            return res.status(404).json({
-            success:false,
-            message:`job not found at ${id}`
-         });
-        }   
-        else if(Number.isNaN(id)){
-            res.status(404).json({
-                success:false,
-                message:`invalid job id ${id}`
-            })
+//          if(!job){
+//             return res.status(404).json({
+//             success:false,
+//             message:`job not found at ${id}`
+//          });
+//         }   
+//         else if(Number.isNaN(id)){
+//             res.status(404).json({
+//                 success:false,
+//                 message:`invalid job id $cd{id}`
+//             })
 
-        }
+//         }
 
-        res.status(200).json({
-            success:true,
-            data:job
-        })
+//         res.status(200).json({
+//             success:true,
+//             data:job
+//         })
 
 
-})
+// })
 
+
+
+app.get('/api/job',(req,res)=>{
+       
+    const {location , type  } = req.query;
+
+    
+
+    let result = jobs;
+
+    if(location){
+        result = result.filter(
+        (job) => job.location.toLowerCase() === location.toLowerCase() 
+        )
+    };
+
+    if(type){
+        result = result.filter(
+            (job) => job.type.toLowerCase() === type.toLowerCase()
+        )
+    }
+
+    
+
+   
+
+    res.status(200).json({
+        success : true ,
+        count : result.length,
+        data:result,
+    })
+
+});
 
 
 const port = 5000;

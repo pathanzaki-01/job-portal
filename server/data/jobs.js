@@ -4,7 +4,7 @@ const jobs = [
         title:"Front End devloper",
         company:"TechNova",
         type:"Full-time",
-        salary:"20000",
+        salary:"30000",
         location:"surat",
         skills:[
             "react",
@@ -43,14 +43,14 @@ const jobs = [
         company:"Codestaff",
         type:"part-time",
         salary:"50000",
-        location:"Anand"
+        location:"surat"
     },
      {
-        id:5,
+        id:6,
         title:"AI engneer",
         company:"Codestaff",
         type:"part-time",
-        salary:"50000",
+        salary:"15000",
         location:"Anand"
     },
 ];

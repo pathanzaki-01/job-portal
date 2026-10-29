@@ -1,58 +1,34 @@
 const jobs = [
-    {
-        id:1,
-        title:"Front End devloper",
-        company:"TechNova",
-        type:"Full-time",
-        salary:"30000",
-        location:"surat",
-        skills:[
-            "react",
-            "tealwind",
-            "javascrips"
-        ]
-    },
-     {
-        id:2,
-        title:"backend devloper",
-        company:"CodeCraft",
-        type:"remote",
-        salary:"35000",
-        location:"puna",
-        postedOn: "2026-10-26"
-    },
-     {
-        id:3,
-        title:"MERN stack devloper",
-        company:"PixelWorks",
-        type:"part-time",
-        salary:"60000",
-        location:"vadodra"
-    },
-     {
-        id:4,
-        title:"AI prompt engneer",
-        company:"CodeCraft",
-        type:"Full-time",
-        salary:"40000",
-        location:"Anand"
-    },
-      {
-        id:5,
-        title:"AI engneer",
-        company:"Codestaff",
-        type:"part-time",
-        salary:"50000",
-        location:"surat"
-    },
-     {
-        id:6,
-        title:"AI engneer",
-        company:"Codestaff",
-        type:"part-time",
-        salary:"15000",
-        location:"Anand"
-    },
+  {
+    id: 1,
+    title: "Frontend Developer",
+    company: "TechNova",
+    location: "Surat",
+    type: "Full-time",
+    salary: 300000,
+    skills: ["React", "Tailwind"],
+    postedOn: "2026-10-26",
+  },
+  {
+    id: 2,
+    title: "Backend Developer",
+    company: "CodeCraft",
+    location: "Remote",
+    type: "Full-time",
+    salary: 450000,
+    skills: ["Node.js", "MongoDB"],
+    postedOn: "2026-10-26",
+  },
+  {
+    id: 3,
+    title: "React Intern",
+    company: "PixelWorks",
+    location: "Ahmedabad",
+    type: "Internship",
+    salary: 120000,
+    skills: ["React", "JavaScript"],
+    postedOn: "2026-10-26",
+  },
 ];
 
 export default jobs;

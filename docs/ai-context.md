@@ -68,3 +68,16 @@ RULES:
 TASK: Give me 10 request bodies to test POST /api/jobs, as a table:
       3 valid, and 7 broken (missing title, empty body, salary as text,
       skills as a string, very long title, etc.). Tell me what response I should expect.
+
+
+
+                      <!-- AI to explain unfamiliar code and doc  -->
+
+                      CONTEXT: I'm a React developer, new to backend. Job Portal, Express.
+PASTE:   (the code or documentation section I don't understand)
+TASK:    1. Explain it line by line in simple English.
+         2. Give a 1-sentence summary.
+         3. Give a real-life analogy.
+         4. Show the smallest working example.
+         5. List 2 common mistakes.
+RULES:   No jargon without explaining it.

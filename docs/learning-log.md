@@ -22,3 +22,17 @@ AI skill: AI code review recipe + accept/reject habit + AI-made test URLs
 What works:
 Bug I hit: ___ because ___
 Next: POST /api/jobs (create a job)
+
+## Day 5
+Feature: POST /api/jobs
+Learned: req.body, express.json() middleware, validation, 201 vs 200, 400, push(), in-memory data resets
+AI skill: AI test data + bad-input test list
+Bug I hit: ___ because ___
+Next: update (PUT/PATCH) and delete (DELETE)
+
+## Day 6
+Feature: PATCH + DELETE /api/jobs/:id (CRUD complete)
+Learned: PUT vs PATCH, whitelisting fields, findIndex, splice, Object.assign, objects by reference
+AI skill: AI as a code/docs explainer + ladder trick
+Bug I hit: ___ because ___
+Next: revision day + clean structure (routes and controllers)

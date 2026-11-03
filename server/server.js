@@ -148,6 +148,112 @@ app.get("/api/jobs/:id", (req, res) => {
   });
 });
 
+app.patch('/api/jobs/:id',(req,res)=>{
+
+            const id = Number(req.params.id)
+
+            if(Number.isNaN(id)){
+              return res.status(400).json({
+                success:false,
+                message:"invalid id 404 bad req"
+              })
+            }
+
+            const job =jobs.find((item)=>item.id===id)
+            
+            if(!job){
+             return res.status(404).json({
+                success:false,
+                message:`job with id ${id} not found`
+              })
+            }
+
+            const allowfields = [
+                "title",
+                "company",
+                "location",
+                "type",
+                "salary", 
+                "skills"
+            ]
+
+            const update={}
+
+            for(const field of allowfields){
+             if (req.body[field] !== undefined) {
+  update[field] = req.body[field];
+}
+            }
+
+            if(update.salary !== undefined){
+              const salary = Number(update.salary)
+              
+              if(Number.isNaN(salary)){
+             return   res.status(400).json({
+                  success : false,
+                  message : 'salary must be a number'
+                })
+              }
+              update.salary = salary
+            }
+
+            if(update.skills !== undefined && !Array.isArray(update.skills)){
+             return res.status(400).json({
+                success: false,
+                 message: "skills must be an array" 
+              })
+
+            }
+
+            if(update.title !== undefined){
+              return res.status(400).json({
+                success:false,
+                message:'Title must be req'
+              })
+            }
+
+            Object.assign(job,update)
+
+            res.status(200).json({
+              success:true,
+              data: job
+            })
+})
+
+
+app.delete('/api/jobs/:id',(req,res)=>{
+               const id =  Number(req.params.id)
+
+               if(Number.isNaN(id)){
+                res.status(400).json({
+                  success:false,
+                  message:'invalid id'
+                })
+
+
+               }
+
+               const index = jobs.findIndex((item)=> item.id === id)
+
+               if(index === -1){
+                res.status(404).json({
+                  success:false,
+                  message:`job with ${id} not found`
+                })
+               }
+
+                  const [deletejob] =    jobs.splice(index,1)
+
+                  res.status(200).json({
+                    success:true,
+                    message:'job deleted successfully',
+                    data: deletejob
+
+                  })
+
+});
+
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
